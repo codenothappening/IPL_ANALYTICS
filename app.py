@@ -1,6 +1,7 @@
 # import streamlit as st
 
 import streamlit as st
+import eda as eda
 
 st.set_page_config(
     page_title="IPL ANALYSIS",
@@ -18,7 +19,7 @@ st.markdown(
 )
 
 PAGES = {
-    "EDA":"",
+    "EDA":eda,
     "Team Analysis":"",
    
 
@@ -26,4 +27,4 @@ PAGES = {
 st.sidebar.title('NAVIGATION')
 selection = st.sidebar.radio('', list(PAGES.keys()))
 page = PAGES[selection]
-# page.app()
+page.app()
