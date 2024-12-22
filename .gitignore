@@ -1,6 +1,6 @@
 # Ignore the entire virtual environment
+env/
 myenv/
-
 # Python-specific ignores
 __pycache__/
 *.py[cod]
