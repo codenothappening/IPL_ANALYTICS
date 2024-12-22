@@ -22,19 +22,9 @@ st.markdown(
 
 PAGES = {
     "EDA":eda,
-<<<<<<< HEAD
-    "Team Analysis":"",
-   
-
-=======
     "Team Analysis":teamAnalysis,
->>>>>>> 1d061a4c2bd674c2e2d2da00fb77afb05641a2e4
 }
 st.sidebar.title('NAVIGATION')
 selection = st.sidebar.radio('', list(PAGES.keys()))
 page = PAGES[selection]
-<<<<<<< HEAD
 page.app()
-=======
-page.app()
->>>>>>> 1d061a4c2bd674c2e2d2da00fb77afb05641a2e4
