@@ -1,0 +1,42 @@
+# Ignore the entire virtual environment
+myenv/
+
+# Python-specific ignores
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+
+# Log files
+*.log
+*.txt
+*.out
+*.err
+
+# Environment and dependency management files
+.env
+.venv
+*.env
+*.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Distribution / Packaging
+*.egg-info/
+*.egg
+dist/
+build/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific files
+.DS_Store
+Thumbs.db
