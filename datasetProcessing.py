@@ -7,7 +7,7 @@ def latest_team(df,cols):
         'Delhi Deredevils' : 'Delhi Capitals',
         'Royal Challengers Bangalore' : 'Royal Challengers Bengaluru',
         'Punjab Kings' : 'Kings XI Punjab',
-        'Rising Pure Supergiants' : 'Rising Pune Supergaints'
+        'Rising Pune Supergiants' : 'Rising Pune Supergiant'
     }
 
     for col in cols:
@@ -50,15 +50,16 @@ def trimSpaceInValues(df):
     return df
 
 
-matches_df = pd.read_csv('matches_2008-2024.csv')
+matches_df = pd.read_csv('Datasets/matches_2008-2024 2.csv')
+matches_df.columns = matches_df.columns.str.strip()
 
-
-deliveries_df = pd.read_csv('deliveries_2008-2024.csv')
+deliveries_df = pd.read_csv('Datasets/deliveries_2008-2024.csv')
+deliveries_df.columns = deliveries_df.columns.str.strip()
 
 matches_df = trimSpaceInValues(matches_df)
 deliveries_df = trimSpaceInValues(deliveries_df)
 
-deliveries_df.loc[deliveries_df['extras_type'].str.strip() == '','extras_type'] = 'None'
+deliveries_df.loc[deliveries_df['extras_type'].str.strip() =='', 'extras_type'] = 'None'
 
 new_matchesDF = latest_team(
     matches_df , ['team1','team2','toss_winner','winner']
