@@ -4,7 +4,7 @@ import eda as eda
 
 import eda as eda
 import teamAnalysis as teamAnalysis
-
+import playerAnalysis as playerAnalysis
 st.set_page_config(
     page_title="IPL ANALYSIS",
     page_icon="🏏",
@@ -23,6 +23,7 @@ st.markdown(
 PAGES = {
     "EDA":eda,
     "Team Analysis":teamAnalysis,
+    "Player Analysis":playerAnalysis,
 }
 st.sidebar.title('NAVIGATION')
 selection = st.sidebar.radio('', list(PAGES.keys()))

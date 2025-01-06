@@ -212,8 +212,40 @@ def app():
         plt.ylabel('Opponents', color='white')
         plt.xticks(fontsize=12, rotation='vertical', color='white')
         plt.yticks(color='white')
-        st.pyplot(fig, transparent=True)
+        st.pyplot(fig, transparent=True)    
+
+        # st.write("Columns in new_matchesDF:", new_matchesDF.columns.tolist())
+        # st.write("Columns in new_deliveriesDF:", new_deliveriesDF.columns.tolist())
 
         
+        
 
+
+        
+        
+        
+
+
+        #Calculate Yearly Performance for the Selected Team
+
+        yearly_data = (new_matchesDF[(new_matchesDF['team1']==team) | (new_matchesDF['team2'] == team)
+                                    ].groupby('season')
+                                    .agg(
+                                        matches_played = ('id','count'),
+                                        matches_won = ('winner', lambda x:(x == team).sum()),
+                                        matches_lost = ('winner',lambda x: (x != team).sum()),
+                                    ).reset_index()
+                                    )
+        
+        # Add Win Percentage
+        yearly_data['win_percentage'] = (
+            (yearly_data['matches_won'] / yearly_data['matches_played']) * 100
+        ).round(2)
+
+
+        # Display Yearly Data
+        st.write(f"Yearly Performance of {team}:")
+        st.dataframe(yearly_data)
+
+        
         st.image("Images/divider.png")

@@ -62,7 +62,7 @@ deliveries_df = trimSpaceInValues(deliveries_df)
 deliveries_df.loc[deliveries_df['extras_type'].str.strip() =='', 'extras_type'] = 'None'
 
 new_matchesDF = latest_team(
-    matches_df , ['team1','team2','toss_winner','winner']
+    matches_df , ['season','team1','team2','toss_winner','winner']
 )
 
 unique_stadium(new_matchesDF)
